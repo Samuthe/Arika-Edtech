@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: mhacs_db
+      POSTGRES_USER: mhacs
+      POSTGRES_PASSWORD: 0dVWNIjyjgbKBZ7rNjmg52XccLJyTg4M
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  web:
+    build: .
+    command: sh -c "python3 manage.py wait_for_db && python3 manage.py migrate && gunicorn --bind 0.0.0.0:8000 studentrecord.wsgi:application"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: studentrecord.settings
+      DEBUG: "True"
+      DATABASE_URL: "postgresql://mhacs_db_user:0dVWNIjyjgbKBZ7rNjmg52XccLJyTg4M@dpg-cuv5b656l47c738nqgug-a.oregon-postgres.render.com/mhacs_db"
+
+volumes:
+  postgres_data:
