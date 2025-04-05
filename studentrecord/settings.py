@@ -89,8 +89,12 @@ CLOUDINARY_STORAGE_RESOURCE_TYPE = "image"
 DEBUG = True
 # DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
+ALLOWED_HOSTS = [host.strip() for host in os.getenv(
+    'DJANGO_ALLOWED_HOSTS',
+    'arika-edtech.onrender.com,mhacs-school-curriculum-portal.onrender.com,localhost,127.0.0.1'
+).split(',')]
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'arika-edtech.onrender.com, mhacs-school-curriculum-portal.onrender.com,localhost, 127.0.0.1').split(',')
+# ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS','arika-edtech.onrender.com,mhacs-school-curriculum-portal.onrender.com,localhost,127.0.0.1').split(',')
 
 print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
 # ALLOWED_HOSTS = allowed_hosts
