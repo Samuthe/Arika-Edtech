@@ -24,7 +24,11 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       {% comment %} <a class="navbar-brand" href="#">Arika EdTech</a> {% endcomment %}
-      <a class="nav-link btn btn-outline-primary" href="{% url 'home' %}">Arika EdTech</a>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'images/TQ White Background.png' %}" alt="Arika EdTech Logo" height="100">
+      </a>
+      
+      {% comment %} <a class="nav-link btn btn-outline-primary" href="{% url 'home' %}">Arika EdTech</a> {% endcomment %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
