@@ -90,7 +90,8 @@ DEBUG = True
 # DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,arika-edtech.onrender.com').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'ALLOWED_HOSTS = ['arika-edtech.onrender.com', 'localhost', '127.0.0.1']
+').split(',')
 
 
 MIDDLEWARE = [
